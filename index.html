@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="UTF-8">
+	<title>PagePro</title>
+	<script src="dist/js/villa.min.js"></script>
+	<link rel="stylesheet" href="dist/css/villa.min.css"/>
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+	<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
+	<script src="dist/js/html5shiv.js"></script>
+	<script src="dist/js/html5shiv-printshiv.js"></script>
+	<script src="dist/js/classList.min.js"></script>
+	<![endif]-->
+</head>
+<body class="font-grey-900 bg-cover">
+
+<style scoped>
+
+	body {
+		background-image: url("img/sky03.jpg");
+		overflow: hidden;
+	}
+
+	main {
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	main.swip {
+		-webkit-transition: transform .7s ease;
+		-moz-transition: transform .7s ease;
+		-ms-transition: transform .7s ease;
+		-o-transition: transform .7s ease;
+		transition: transform .7s ease;
+	}
+
+	.pane {
+		height: 100%;
+		padding: 1rem;
+		width: 50%;
+	}
+
+	.pane .pane-wrapper {
+		height: 100%;
+		padding: .5rem;
+		width: 100%;
+	}
+
+	.pane .pane-wrapper.border {
+		border-style: solid;
+		border-width: 1px;
+	}
+
+	.pane .pane-inner {
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+	}
+
+	.pane .pane-inner-copy {
+		padding: 1rem;
+	}
+
+	.pane .pane-inner-copy h1 {
+		font-weight: 100;
+		margin-bottom: .5em;
+	}
+
+	.pane .pane-inner-copy p {
+		font-weight: 300;
+		font-size: 1.125em;
+		margin-bottom: 1em;
+	}
+
+</style>
+
+<main id="main" class="flex">
+
+	<div class="pane">
+
+		<div class="pane-wrapper">
+
+			<div class="pane-inner"></div>
+
+		</div>
+
+	</div>
+
+	<div class="pane home white">
+
+		<div class="pane-wrapper">
+
+			<div class="pane-inner flex flex-column child-grow-1">
+
+				<header class="flex justify-center align-center width-100">
+
+					<style scoped>
+
+						.logo {
+							border-radius: 50%;
+							height: 8rem;
+							width: 8rem;
+						}
+
+					</style>
+
+					<div class="logo red-700"></div>
+
+				</header>
+
+				<footer class="flex justify-center">
+
+					<style scoped>
+
+						.button {
+							border-style: solid;
+							border-radius: 3px;
+							border-width: 2px;
+							height: 3.5rem;
+							padding: 0 2.25rem;
+							font-size: 1.125em;
+						}
+
+					</style>
+
+					<a href="#" id="goReceita" class="button flex justify-center align-center border-red-700 font-red-700 h-red-700 hfont-white">
+						Receitas
+					</a>
+
+				</footer>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="pane red-700">
+
+		<div class="pane-wrapper">
+
+			<div class="pane-inner">
+
+				<div class="pane-inner-copy font-white">
+
+					<h1>Sobre</h1>
+
+					<p>A empresa foi fundada em 13 de março de 1.969, um dos fundadores foi o atual proprietário Antonio Fadel, que com irmãos e primos vieram de Conchal, cidadezinha próxima a Mogi Mirim, para investir em Palmital, cidade que tinha muitas previsões de crescimento devido à terra produtiva.</p>
+
+					<p>No ano de 1.988 a sociedade foi dissolvida e Antonio começa uma nova sociedade com seus filhos. Nesta época o principal produto era farinha de raspa de mandioca, esta farinha era utilizada na mistura com farinha de trigo, devido à escassez do trigo nacional nesta época.</p>
+
+					<p>Atualmente a empresa produz derivados de mandioca como: fécula, farinha de raspa, polvilho doce, polvilho azedo e tapioca hidratada. A Promafa cresceu de forma consistente e seu crescimento foi baseado sempre na qualidade de seu produto e no atendimento primordial ao cliente.</p>
+
+					<p>Para atender esta Política, a nossa empresa reconhece que o fator humano é peça fundamental para a obtenção da qualidade total do seu sistema, e que a ele deve ser dado todo o apoio necessário para o perfeito entendimento deste compromisso.</p>
+
+					<p>Buscar a qualidade em todos os processos existentes é uma missão infindável, objetivando sempre a melhoria contínua em quaisquer tarefas que agreguem valor ao produto ou serviço, dando ênfase constante à participação de cada funcionário e ao trabalho de equipe.</p>
+
+					<p>Trabalhos que preservem a segurança e saúde dos seus funcionários e a preservação do meio ambiente serão considerados prioritários e terão o respaldo da diretoria.</p>
+
+					<p>A preservação do meio ambiente será ponto estratégico do nosso negócio, na busca constante do melhoramento contínuo dos processos.</p>
+
+					<p>Para atender a esta política, delega a cada funcionário individualmente, o comprometimento pessoal, encorajando e facilitando a autoconfiança, simplicidade e agilidade em cada tarefa executada.</p>
+
+					<p>Esta política, juntamente com os procedimentos e rotinas internas, embasa o Sistema da Qualidade aplicado em nossa empresa.</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</main>
+
+<script>
+
+	var a, i, p, w;
+
+	a = document.getElementById('main');
+	p = document.getElementsByClassName('pane');
+	w = window.innerWidth;
+
+	var v = false;
+
+	/**
+	 * Função para redimensionar objetos
+	 */
+	var resizeThings = function(c) {
+		var d = typeof c == 'string';
+
+		if (d) a.classList.add(c);
+
+		w = window.innerWidth;
+
+		for (i = p.length; i--; )
+			p[i].style.width = ( w / 2) + 'px';
+
+		a.style.width = (( w / 2) * p.length) + 'px';
+
+		if (v) a.style.transform = 'translateX(-' + ( w / 2 ) + 'px)';
+		else a.style.transform = 'none';
+
+		if (d)
+			window.setTimeout(function() {
+				a.classList.remove(c);
+			}, 700);
+	};
+
+	document.getElementById('goReceita').addEventListener('click', function () {
+		v = !v;
+		resizeThings('swip');
+	});
+
+	window.addEventListener('resize', resizeThings);
+
+	resizeThings();
+
+</script>
+
+</body>
+</html>
