@@ -15,6 +15,105 @@
 </head>
 <body class="font-grey-900 bg-cover">
 
+<style>
+
+	@keyframes aumentar {
+
+		0% {
+			height: 8rem;
+			width: 8rem;
+		}
+
+		100% {
+			height: 16rem;
+			width: 16rem;
+		}
+
+	}
+
+</style>
+
+<style scoped>
+
+	#splash {
+		display: none;
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.splash-active #splash,
+	.splash-invisible #splash {
+		display: block;
+	}
+
+	.splash-active #splash {
+		opacity: 1;
+		z-index: 10;
+	}
+
+	.splash-invisible #splash {
+		opacity: 0;
+		-webkit-transition: opacity 1s ease;
+		-moz-transition: opacity 1s ease;
+		-ms-transition: opacity 1s ease;
+		-o-transition: opacity 1s ease;
+		transition: opacity 1s ease;
+	}
+
+	#splash .hero {
+		width: 100%;
+		height: 100%;
+	}
+
+	.logo {
+		border-radius: 50%;
+		height: 8rem;
+		width: 8rem;
+	}
+
+	.splash-active .logo {
+		animation: aumentar .7s linear 0s 1;
+		height: 16rem;
+		width: 16rem;
+	}
+
+</style>
+
+<div id="splash" class="blue">
+
+	<div class="hero flex justify-center align-center grey">
+
+		<div class="logo red-700"></div>
+
+	</div>
+
+</div>
+
+<script>
+
+	var body = document.body;
+	var splash = document.getElementById('splash');
+
+
+	var killSplash = function() {
+
+		window.setTimeout(function() {
+			body.classList.remove('splash-active');
+			body.classList.add('splash-invisible');
+
+			window.setTimeout(function() {
+				body.classList.remove('splash-invisible');
+			}, 1000);
+
+		}, 2000);
+
+	};
+
+//	killSplash();
+
+</script>
+
 <style scoped>
 
 	body {
@@ -25,20 +124,43 @@
 	main {
 		height: 100vh;
 		overflow: hidden;
+		z-index: 1;
+		width: 100%;
 	}
 
 	main.swip {
-		-webkit-transition: transform .7s ease;
-		-moz-transition: transform .7s ease;
-		-ms-transition: transform .7s ease;
-		-o-transition: transform .7s ease;
-		transition: transform .7s ease;
+		-webkit-transition-property: transform, width;
+		-moz-transition-property: transform, width;
+		-ms-transition-property: transform, width;
+		-o-transition-property: transform, width;
+		transition-property: transform, width;
+		-webkit-transition-timing-function: ease;
+		-moz-transition-timing-function: ease;
+		-ms-transition-timing-function: ease;
+		-o-transition-timing-function: ease;
+		transition-timing-function: ease;
+		-webkit-transition-duration: .7s;
+		-moz-transition-duration: .7s;
+		-ms-transition-duration: .7s;
+		-o-transition-duration: .7s;
+		transition-duration: .7s;
 	}
 
 	.pane {
 		height: 100%;
 		padding: 1rem;
+	}
+
+	.pane.half {
 		width: 50%;
+	}
+
+	main.swip .pane {
+		-webkit-transition: width .7s ease;
+		-moz-transition: width .7s ease;
+		-ms-transition: width .7s ease;
+		-o-transition: width .7s ease;
+		transition: width .7s ease;
 	}
 
 	.pane .pane-wrapper {
@@ -77,17 +199,17 @@
 
 <main id="main" class="flex">
 
-	<div class="pane">
+	<!--<div class="pane half">-->
 
-		<div class="pane-wrapper">
+		<!--<div class="pane-wrapper">-->
 
-			<div class="pane-inner"></div>
+			<!--<div class="pane-inner"></div>-->
 
-		</div>
+		<!--</div>-->
 
-	</div>
+	<!--</div>-->
 
-	<div class="pane home white">
+	<div id="home" class="pane white">
 
 		<div class="pane-wrapper">
 
@@ -95,17 +217,65 @@
 
 				<header class="flex justify-center align-center width-100">
 
+					<style>
+
+						@keyframes start {
+
+							0% {
+								height: 8rem;
+								width: 8rem;
+							}
+
+							50% {
+								height: 4rem;
+								width: 4rem;
+							}
+
+							100% {
+								height: 8rem;
+								width: 8rem;
+							}
+
+						}
+
+					</style>
+
 					<style scoped>
+
+						.logo-wrapper {
+							height: 16rem;
+							width: 16rem;
+						}
 
 						.logo {
 							border-radius: 50%;
 							height: 8rem;
 							width: 8rem;
+							-webkit-transition: all .3s ease;
+							-moz-transition: all .3s ease;
+							-ms-transition: all .3s ease;
+							-o-transition: all .3s ease;
+							transition: all .3s ease;
+						}
+
+						.logo:hover {
+							height: 10rem;
+							width: 10rem;
+						}
+
+						:not(.half) .logo {
+							-webkit-animation: start 1s ease infinite;
+							-o-animation: start 1s ease infinite;
+							animation: start 1s ease infinite;
 						}
 
 					</style>
 
-					<div class="logo red-700"></div>
+
+					<div class="logo-wrapper flex justify-center align-center">
+						<div class="logo red-700"></div>
+					</div>
+
 
 				</header>
 
@@ -136,7 +306,7 @@
 
 	</div>
 
-	<div class="pane red-700">
+	<div class="pane half red-700">
 
 		<div class="pane-wrapper">
 
@@ -144,7 +314,7 @@
 
 				<div class="pane-inner-copy font-white">
 
-					<h1>Sobre</h1>
+					<h1>Receitas</h1>
 
 					<p>A empresa foi fundada em 13 de março de 1.969, um dos fundadores foi o atual proprietário Antonio Fadel, que com irmãos e primos vieram de Conchal, cidadezinha próxima a Mogi Mirim, para investir em Palmital, cidade que tinha muitas previsões de crescimento devido à terra produtiva.</p>
 
@@ -176,46 +346,75 @@
 
 <script>
 
-	var a, i, p, w;
+	var i, e, h, m, mw, p, s, v, w;
 
-	a = document.getElementById('main');
-	p = document.getElementsByClassName('pane');
+	m = document.getElementById('main');
+	p = m.getElementsByClassName('pane');
+	h = document.getElementById('home');
+
 	w = window.innerWidth;
+	mw = m.offsetWidth;
 
-	var v = false;
+	v = false;
+
+
+	var mainResizePanes = function() {
+		w = window.innerWidth;
+		mw = 0;
+
+		for (i = p.length; i--; ) {
+			e = p[i];
+			s = w;
+
+			if (e.classList.contains('half')) s = s / 2;
+			if (e.classList.contains('third')) s = s / 3;
+			if (e.classList.contains('quarter')) s = s / 4;
+
+			e.style.width = s + 'px';
+			mw += s;
+		}
+
+		m.style.width = mw + 'px';
+
+		if (v) m.style.transform = 'translateX(-' + ( w / 2 ) + 'px)';
+		else m.style.transform = 'none';
+	};
 
 	/**
-	 * Função para redimensionar objetos
+	 * Função para redimensionar da página
 	 */
-	var resizeThings = function(c) {
-		var d = typeof c == 'string';
+	var mainResize = function(c) {
+		var d;
 
-		if (d) a.classList.add(c);
+		if (d = typeof c == 'string') m.classList.add(c);
 
-		w = window.innerWidth;
-
-		for (i = p.length; i--; )
-			p[i].style.width = ( w / 2) + 'px';
-
-		a.style.width = (( w / 2) * p.length) + 'px';
-
-		if (v) a.style.transform = 'translateX(-' + ( w / 2 ) + 'px)';
-		else a.style.transform = 'none';
+		mainResizePanes();
 
 		if (d)
 			window.setTimeout(function() {
-				a.classList.remove(c);
+				m.classList.remove(c);
 			}, 700);
+	};
+
+	var addHalfClass = function(el) {
+		el.classList.add('half');
+		mainResize('swip');
 	};
 
 	document.getElementById('goReceita').addEventListener('click', function () {
 		v = !v;
-		resizeThings('swip');
+		mainResize('swip');
 	});
 
-	window.addEventListener('resize', resizeThings);
+	window.addEventListener('resize', mainResize);
 
-	resizeThings();
+	mainResize();
+
+	window.addEventListener('load', function() {
+		window.setTimeout(function() {
+			addHalfClass(h);
+		}, 1000);
+	});
 
 </script>
 
