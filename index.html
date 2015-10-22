@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="roboto">
 <head>
 	<meta charset="UTF-8">
 	<title>PagePro</title>
@@ -121,11 +121,16 @@
 		overflow: hidden;
 	}
 
-	main {
-		height: 100vh;
+	main,
+	main .row {
+		height: auto;
 		overflow: hidden;
 		z-index: 1;
 		width: 100%;
+	}
+
+	main .row {
+		height: 100vh;
 	}
 
 	main.swip {
@@ -197,89 +202,177 @@
 
 </style>
 
-<main id="main" class="flex">
+<main id="main" class="flex flex-column">
 
-	<!--<div class="pane half">-->
+	<div class="row flex current">
 
-		<!--<div class="pane-wrapper">-->
+		<div id="home" class="pane white">
 
-			<!--<div class="pane-inner"></div>-->
+			<div class="pane-wrapper">
 
-		<!--</div>-->
+				<div class="pane-inner flex flex-column child-grow-1">
 
-	<!--</div>-->
+					<header class="flex justify-center align-center width-100">
 
-	<div id="home" class="pane white">
+						<style>
 
-		<div class="pane-wrapper">
+							@keyframes start {
 
-			<div class="pane-inner flex flex-column child-grow-1">
+								0% {
+									height: 8rem;
+									width: 8rem;
+								}
 
-				<header class="flex justify-center align-center width-100">
+								50% {
+									height: 4rem;
+									width: 4rem;
+								}
 
-					<style>
+								100% {
+									height: 8rem;
+									width: 8rem;
+								}
 
-						@keyframes start {
+							}
 
-							0% {
+						</style>
+
+						<style scoped>
+
+							.logo-wrapper {
+								height: 16rem;
+								width: 16rem;
+								-webkit-transition: height .3s ease;
+								-moz-transition: height .3s ease;
+								-ms-transition: height .3s ease;
+								-o-transition: height .3s ease;
+								transition: height .3s ease;
+							}
+
+							.logo {
+								border-radius: 50%;
 								height: 8rem;
 								width: 8rem;
+								-webkit-transition: all .3s ease;
+								-moz-transition: all .3s ease;
+								-ms-transition: all .3s ease;
+								-o-transition: all .3s ease;
+								transition: all .3s ease;
 							}
 
-							50% {
-								height: 4rem;
-								width: 4rem;
+							.logo:hover {
+								height: 10rem;
+								width: 10rem;
 							}
 
-							100% {
-								height: 8rem;
-								width: 8rem;
+							:not(.half) .logo {
+								/*-webkit-animation: start 1s ease infinite;*/
+								/*-o-animation: start 1s ease infinite;*/
+								/*animation: start 1s ease infinite;*/
 							}
 
-						}
-
-					</style>
-
-					<style scoped>
-
-						.logo-wrapper {
-							height: 16rem;
-							width: 16rem;
-						}
-
-						.logo {
-							border-radius: 50%;
-							height: 8rem;
-							width: 8rem;
-							-webkit-transition: all .3s ease;
-							-moz-transition: all .3s ease;
-							-ms-transition: all .3s ease;
-							-o-transition: all .3s ease;
-							transition: all .3s ease;
-						}
-
-						.logo:hover {
-							height: 10rem;
-							width: 10rem;
-						}
-
-						:not(.half) .logo {
-							-webkit-animation: start 1s ease infinite;
-							-o-animation: start 1s ease infinite;
-							animation: start 1s ease infinite;
-						}
-
-					</style>
+						</style>
 
 
-					<div class="logo-wrapper flex justify-center align-center">
-						<div class="logo red-700"></div>
+						<div class="logo-wrapper flex justify-center align-center">
+							<div class="logo red-700"></div>
+						</div>
+
+					</header>
+
+					<nav class="main-nav flex flex-column align-center justify-start">
+
+						<style scoped>
+
+							.main-nav ul {
+								width: 10rem;
+								border-top: solid 2px #000000;
+								border-bottom: solid 2px #000000;
+								padding: 24px 0;
+							}
+
+							.main-nav li,
+							.main-nav li a {
+								width: 100%;
+							}
+
+							.main-nav li a {
+								text-align: center;
+								padding: 8px 0;
+							}
+
+							.main-nav li a .name {
+								color: #212121;
+								font-size: 1.25em;
+								text-transform: uppercase;
+								font-weight: 600;
+							}
+
+							.main-nav li a .name:hover {
+								color: #616161;
+							}
+
+						</style>
+
+						<ul class="child-flex">
+
+							<li><a href="#"><span class="name">Sobre</span></a></li>
+							<li><a href="#"><span class="name">Produtos</span></a></li>
+							<li><a href="#"><span class="name">Receitas</span></a></li>
+							<li><a href="#"><span id="localize" class="name">Localização</span></a></li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="pane two-third red">
+
+			<div class="pane-wrapper">
+
+				<div class="pane-inner">
+
+					<div class="pane-inner-copy font-white">
+
+						<h1>Sobre</h1>
+
+						<p>A empresa foi fundada em 13 de março de 1.969, um dos fundadores foi o atual proprietário Antonio Fadel, que com irmãos e primos vieram de Conchal, cidadezinha próxima a Mogi Mirim, para investir em Palmital, cidade que tinha muitas previsões de crescimento devido à terra produtiva.</p>
+
+						<p>No ano de 1.988 a sociedade foi dissolvida e Antonio começa uma nova sociedade com seus filhos. Nesta época o principal produto era farinha de raspa de mandioca, esta farinha era utilizada na mistura com farinha de trigo, devido à escassez do trigo nacional nesta época.</p>
+
+						<p>Atualmente a empresa produz derivados de mandioca como: fécula, farinha de raspa, polvilho doce, polvilho azedo e tapioca hidratada. A Promafa cresceu de forma consistente e seu crescimento foi baseado sempre na qualidade de seu produto e no atendimento primordial ao cliente.</p>
+
+						<p>Para atender esta Política, a nossa empresa reconhece que o fator humano é peça fundamental para a obtenção da qualidade total do seu sistema, e que a ele deve ser dado todo o apoio necessário para o perfeito entendimento deste compromisso.</p>
+
+						<p>Buscar a qualidade em todos os processos existentes é uma missão infindável, objetivando sempre a melhoria contínua em quaisquer tarefas que agreguem valor ao produto ou serviço, dando ênfase constante à participação de cada funcionário e ao trabalho de equipe.</p>
+
+						<p>Trabalhos que preservem a segurança e saúde dos seus funcionários e a preservação do meio ambiente serão considerados prioritários e terão o respaldo da diretoria.</p>
+
+						<p>A preservação do meio ambiente será ponto estratégico do nosso negócio, na busca constante do melhoramento contínuo dos processos.</p>
+
+						<p>Para atender a esta política, delega a cada funcionário individualmente, o comprometimento pessoal, encorajando e facilitando a autoconfiança, simplicidade e agilidade em cada tarefa executada.</p>
+
+						<p>Esta política, juntamente com os procedimentos e rotinas internas, embasa o Sistema da Qualidade aplicado em nossa empresa.</p>
+
 					</div>
 
+				</div>
 
-				</header>
+			</div>
 
-				<footer class="flex justify-center">
+		</div>
+
+
+		<div class="pane sixth white">
+
+			<div class="pane-wrapper">
+
+				<div class="pane-inner flex flex-column justify-center">
 
 					<style scoped>
 
@@ -294,11 +387,31 @@
 
 					</style>
 
-					<a href="#" id="goReceita" class="button flex justify-center align-center border-red-700 font-red-700 h-red-700 hfont-white">
+					<a href="#" id="goReceita" class="button flex justify-center align-center border-red font-red h-red hfont-white">
 						Receitas
 					</a>
 
-				</footer>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="pane three-quarter red bg-cover">
+
+			<style scoped>
+
+				.pane {
+					background-image: url("img/people02.jpeg");
+				}
+
+			</style>
+
+			<div class="pane-wrapper">
+
+				<div class="pane-inner flex flex-column justify-center">
+
+				</div>
 
 			</div>
 
@@ -306,33 +419,15 @@
 
 	</div>
 
-	<div class="pane half red-700">
+	<div class="row flex">
 
-		<div class="pane-wrapper">
+		<div class="pane full-width red bg-cover">
 
-			<div class="pane-inner">
+			<div class="pane-wrapper">
 
-				<div class="pane-inner-copy font-white">
+				<div class="pane-inner">
 
-					<h1>Receitas</h1>
-
-					<p>A empresa foi fundada em 13 de março de 1.969, um dos fundadores foi o atual proprietário Antonio Fadel, que com irmãos e primos vieram de Conchal, cidadezinha próxima a Mogi Mirim, para investir em Palmital, cidade que tinha muitas previsões de crescimento devido à terra produtiva.</p>
-
-					<p>No ano de 1.988 a sociedade foi dissolvida e Antonio começa uma nova sociedade com seus filhos. Nesta época o principal produto era farinha de raspa de mandioca, esta farinha era utilizada na mistura com farinha de trigo, devido à escassez do trigo nacional nesta época.</p>
-
-					<p>Atualmente a empresa produz derivados de mandioca como: fécula, farinha de raspa, polvilho doce, polvilho azedo e tapioca hidratada. A Promafa cresceu de forma consistente e seu crescimento foi baseado sempre na qualidade de seu produto e no atendimento primordial ao cliente.</p>
-
-					<p>Para atender esta Política, a nossa empresa reconhece que o fator humano é peça fundamental para a obtenção da qualidade total do seu sistema, e que a ele deve ser dado todo o apoio necessário para o perfeito entendimento deste compromisso.</p>
-
-					<p>Buscar a qualidade em todos os processos existentes é uma missão infindável, objetivando sempre a melhoria contínua em quaisquer tarefas que agreguem valor ao produto ou serviço, dando ênfase constante à participação de cada funcionário e ao trabalho de equipe.</p>
-
-					<p>Trabalhos que preservem a segurança e saúde dos seus funcionários e a preservação do meio ambiente serão considerados prioritários e terão o respaldo da diretoria.</p>
-
-					<p>A preservação do meio ambiente será ponto estratégico do nosso negócio, na busca constante do melhoramento contínuo dos processos.</p>
-
-					<p>Para atender a esta política, delega a cada funcionário individualmente, o comprometimento pessoal, encorajando e facilitando a autoconfiança, simplicidade e agilidade em cada tarefa executada.</p>
-
-					<p>Esta política, juntamente com os procedimentos e rotinas internas, embasa o Sistema da Qualidade aplicado em nossa empresa.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi consequatur ducimus eum excepturi exercitationem hic id illo in, magnam, nisi obcaecati quod repellat repellendus tempora temporibus ullam vero voluptatem!</p>
 
 				</div>
 
@@ -346,29 +441,52 @@
 
 <script>
 
-	var i, e, h, m, mw, p, s, v, w;
+	var cl, e, h, i, m, mh, mw, p, r, rc, s, t, v, w;
 
 	m = document.getElementById('main');
-	p = m.getElementsByClassName('pane');
-	h = document.getElementById('home');
+
+	r = m.getElementsByClassName('row');
+
+	/* Pane Functions */
 
 	w = window.innerWidth;
 	mw = m.offsetWidth;
 
 	v = false;
 
+	h = document.getElementById('home');
+
+	function getPageTopLeft(el) {
+		var rect = el.getBoundingClientRect();
+		var docEl = document.documentElement;
+		return {
+			left: rect.left + (window.pageXOffset || docEl.scrollLeft || 0),
+			top: rect.top + (window.pageYOffset || docEl.scrollTop || 0)
+		};
+	}
 
 	var mainResizePanes = function() {
 		w = window.innerWidth;
 		mw = 0;
+		mh = 0;
+
+		for (i = 0; i < r.length; i++ )
+			if (r[i].classList.contains('current')) break; else mh += r[i].offsetHeight;
 
 		for (i = p.length; i--; ) {
 			e = p[i];
 			s = w;
+			cl = e.classList;
 
-			if (e.classList.contains('half')) s = s / 2;
-			if (e.classList.contains('third')) s = s / 3;
-			if (e.classList.contains('quarter')) s = s / 4;
+			if (cl.contains('full-width')) s = w;
+			else if (cl.contains('half')) s = s / 2;
+			else if (cl.contains('third')) s = s / 3;
+			else if (cl.contains('two-third')) s = 2 * (s / 3);
+			else if (cl.contains('quarter')) s = s / 4;
+			else if (cl.contains('three-quarter')) s = 3 * (s / 4);
+			else if (cl.contains('fifth')) s = s / 5;
+			else if (cl.contains('sixth')) s = s / 6;
+			else if (cl.contains('eighth')) s = s / 8;
 
 			e.style.width = s + 'px';
 			mw += s;
@@ -376,18 +494,33 @@
 
 		m.style.width = mw + 'px';
 
-		if (v) m.style.transform = 'translateX(-' + ( w / 2 ) + 'px)';
-		else m.style.transform = 'none';
+		if (v) {
+			t = 0;
+			for (i = v - 1; i--; ) t += p[i].offsetWidth;
+			m.style.transform = 'translate(-' + t + 'px,' + mh + 'px)';
+		} else {
+			t = 'none';
+			m.style.transform = t;
+		}
+
+	};
+
+	var setCurrentPanes = function() {
+		rc = m.querySelector('.row.current');
+		p = rc.getElementsByClassName('pane');
 	};
 
 	/**
 	 * Função para redimensionar da página
+	 *
+	 * @param c class
 	 */
 	var mainResize = function(c) {
 		var d;
 
 		if (d = typeof c == 'string') m.classList.add(c);
 
+		setCurrentPanes();
 		mainResizePanes();
 
 		if (d)
@@ -396,13 +529,18 @@
 			}, 700);
 	};
 
+	/**
+	 * Adiciona a classe 'half' ao elemento
+	 *
+	 * @param el
+	 */
 	var addHalfClass = function(el) {
-		el.classList.add('half');
+		el.classList.add('sixth');
 		mainResize('swip');
 	};
 
 	document.getElementById('goReceita').addEventListener('click', function () {
-		v = !v;
+		v = !v ? 3 : false;
 		mainResize('swip');
 	});
 
@@ -414,6 +552,33 @@
 		window.setTimeout(function() {
 			addHalfClass(h);
 		}, 1000);
+	});
+
+	/* Row Functions */
+
+	document.getElementById('localize').addEventListener('click', function() {
+
+		var mh = 0;
+
+		for (i = 0; i < r.length; i++) {
+			mh += r[i].offsetHeight;
+			if (r[i].classList.contains('current')) {
+				r[i].classList.remove('current');
+				r[i + 1].classList.add('current');
+				break;
+			}
+		}
+
+		m.classList.add('swip');
+
+		mainResize();
+
+		m.style.transform = 'translate(' + 0 + 'px,-'+ mh + 'px)';
+
+		window.setTimeout(function() {
+			m.classList.remove('swip');
+		}, 700);
+
 	});
 
 </script>
