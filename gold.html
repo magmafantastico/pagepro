@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="flex justify-center align-center">
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="dist/js/villa.min.js"></script>
+
+<style>
+
+	html {
+		height: 100vh;
+	}
+
+	@keyframes load {
+
+		0% {
+			transform: scaleX(0);
+		}
+
+		100% {
+			transform: scaleX(1);
+		}
+
+	}
+
+	.a {
+		width: 12em;
+		height: 2px;
+		margin-bottom: .5em;
+	}
+
+	.b {
+		animation: load 1s ease;
+		height: 100%;
+		width: 100%;
+	}
+
+</style>
+
+<div class="a amber-100 flex justify-start">
+
+	<div class="b amber-a400"></div>
+
+</div>
+
+</html>

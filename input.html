@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+
+<style>
+
+	.InputText {
+		/*font-size: 16px;*/
+		position: relative;
+		padding: .5em 1em;
+		/*background-color: #fde0f2;*/
+	}
+
+	.InputText {
+		max-width: 50%;
+	}
+
+	.InputText-input {
+		width: 100%;
+		border-radius: 3px;
+		border: solid 1px #bdbdbd;
+		background: none;
+		height: 3em;
+		padding: 0 1em;
+		-webkit-transition: padding .2s ease-in-out 0s;
+		-moz-transition: padding .2s ease-in-out 0s;
+		-ms-transition: padding .2s ease-in-out 0s;
+		-o-transition: padding .2s ease-in-out 0s;
+		transition: padding .2s ease-in-out 0s;
+	}
+
+	.InputText.is-active .InputText-input {
+		padding: 1em 1em 0;
+	}
+
+	.InputText-label {
+		line-height: 0;
+		width: 100%;
+		position: absolute;
+		padding: 1em 1em;
+		margin: 0 1em;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		-webkit-transition: opacity .2s ease-in-out;
+		-moz-transition: opacity .2s ease-in-out;
+		-ms-transition: opacity .2s ease-in-out;
+		-o-transition: opacity .2s ease-in-out;
+		transition: opacity .2s ease-in-out;
+		visibility: hidden;
+	}
+
+	.InputText.is-active .InputText-label {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.InputText-label span {
+		line-height: 0;
+		font-weight: 900;
+		font-size: .75em;
+	}
+
+</style>
+
+<div class="InputText" data-placeholder="Nome" data-label="Digite seu nome completo"></div>
+<div class="InputText" data-placeholder="Endereço" data-label="Nome da rua, número, cidade"></div>
+<div class="InputText" data-placeholder="Complemento" data-label="Apenas um complemento"></div>
+
+<input type="text" name="test" id="test"/>
+
+<script>
+
+	var a = document.querySelectorAll('.InputText');
+
+	var blurCtrl = function() {
+
+//		this.parent.classList.remove('is-active');
+
+	};
+
+	var focusCtrl = function() {
+
+//		this.parent.classList.add('is-active');
+
+	};
+
+	var inputCtrl = function() {
+
+		if (this.value) {
+			if (!this.active) {
+				this.parent.classList.add('is-active');
+				this.active = true;
+			}
+		} else {
+			if (this.active) {
+				this.active = false;
+				this.parent.classList.remove('is-active');
+			}
+		}
+
+	};
+
+	for (var i = a.length; i--; ) {
+
+		var b = a[i];
+
+		var input = document.createElement('input');
+		input.placeholder = b.getAttribute('data-placeholder') || '';
+		input.classList.add('InputText-input');
+
+		input.parent = b;
+
+		input.addEventListener('focus', focusCtrl, false);
+		input.addEventListener('blur', blurCtrl, false);
+		input.addEventListener('input', inputCtrl, false);
+
+		var label = document.createElement('label');
+		label.classList.add('InputText-label');
+
+		var labelSpan = document.createElement('span');
+		labelSpan.innerHTML = b.getAttribute('data-label') || '';
+
+		label.appendChild(labelSpan);
+
+		b.appendChild(input);
+		b.appendChild(label);
+
+	}
+
+</script>
+
+</html>
