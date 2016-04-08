@@ -3,7 +3,9 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'),
 	minifycss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	browserSync = require('browser-sync').create(),
+	reload = browserSync.reload;
 
 var core = 'css/_.css',
 	cssFiles = 'css/*.css',
@@ -46,3 +48,20 @@ gulp.task('default', function() {
 	var villa = ['css', 'js'];
 	gulp.watch(villa);
 });
+
+// Watch scss AND html files, doing different things with each.
+gulp.task('serve', function () {
+
+	// Serve files from the root of this project
+	browserSync.init({
+		server: {
+			baseDir: "./",
+			index: "index.html"
+		}
+	});
+
+	gulp.watch("*.html").on("change", reload);
+
+});
+
+gulp.task('default', ['serve']);

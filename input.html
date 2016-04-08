@@ -7,18 +7,18 @@
 
 <style>
 
-	.InputText {
+	.FieldText {
 		/*font-size: 16px;*/
 		position: relative;
-		padding: .5em 1em;
+		margin: .5em 1em;
 		/*background-color: #fde0f2;*/
 	}
 
-	.InputText {
+	.FieldText {
 		max-width: 50%;
 	}
 
-	.InputText-input {
+	.FieldText-input {
 		width: 100%;
 		border-radius: 3px;
 		border: solid 1px #bdbdbd;
@@ -32,16 +32,23 @@
 		transition: padding .2s ease-in-out 0s;
 	}
 
-	.InputText.is-active .InputText-input {
+	.FieldText.is-active .FieldText-input {
 		padding: 1em 1em 0;
 	}
 
-	.InputText-label {
+	.FieldText-label {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: column;
+		flex-flow: column;
 		line-height: 0;
 		width: 100%;
 		position: absolute;
-		padding: 1em 1em;
-		margin: 0 1em;
+		padding: 0 0 0 1em;
+		margin: 0;
 		top: 0;
 		left: 0;
 		opacity: 0;
@@ -53,28 +60,72 @@
 		visibility: hidden;
 	}
 
-	.InputText.is-active .InputText-label {
+	.FieldText.is-active .FieldText-label {
 		visibility: visible;
 		opacity: 1;
 	}
 
-	.InputText-label span {
-		line-height: 0;
+	.FieldText-label span {
+		/*display: none;*/
+		line-height: 1.6;
 		font-weight: 900;
 		font-size: .75em;
 	}
 
 </style>
 
-<div class="InputText" data-placeholder="Nome" data-label="Digite seu nome completo"></div>
-<div class="InputText" data-placeholder="Endereço" data-label="Nome da rua, número, cidade"></div>
-<div class="InputText" data-placeholder="Complemento" data-label="Apenas um complemento"></div>
+<div class="FieldText" data-placeholder="Nome" data-label="Digite seu nome completo">
+
+	<input type="text" class="FieldText-input"/>
+
+</div>
+
+<div class="FieldText" data-placeholder="Endereço" data-label="Nome da rua, número, cidade">
+
+	<input type="text" class="FieldText-input"/>
+
+</div>
+
+<div class="FieldText" data-placeholder="Complemento" data-label="Apenas um complemento">
+
+	<input type="text" class="FieldText-input"/>
+
+</div>
+
 
 <input type="text" name="test" id="test"/>
 
 <script>
 
-	var a = document.querySelectorAll('.InputText');
+	var FieldText = (function() {
+
+		function FieldText(viewport) {
+
+			var self = this;
+
+			this.onBlur = function (ev) {
+
+			};
+
+			this.onFocus = function (ev) {
+
+			};
+
+			this.onInput = function (ev) {
+
+			};
+
+		}
+
+		return FieldText;
+
+	})();
+
+</script>
+
+<script>
+
+	var a = document.querySelectorAll('.FieldText');
 
 	var blurCtrl = function() {
 
@@ -91,15 +142,19 @@
 	var inputCtrl = function() {
 
 		if (this.value) {
+
 			if (!this.active) {
 				this.parent.classList.add('is-active');
 				this.active = true;
 			}
+
 		} else {
+
 			if (this.active) {
 				this.active = false;
 				this.parent.classList.remove('is-active');
 			}
+
 		}
 
 	};
@@ -108,9 +163,10 @@
 
 		var b = a[i];
 
-		var input = document.createElement('input');
-		input.placeholder = b.getAttribute('data-placeholder') || '';
-		input.classList.add('InputText-input');
+		var input = b.querySelector('input') || document.createElement('input');
+
+		input.placeholder = b.dataset.placeholder || '';
+		input.classList.add('FieldText-input');
 
 		input.parent = b;
 
@@ -119,10 +175,10 @@
 		input.addEventListener('input', inputCtrl, false);
 
 		var label = document.createElement('label');
-		label.classList.add('InputText-label');
+		label.classList.add('FieldText-label');
 
 		var labelSpan = document.createElement('span');
-		labelSpan.innerHTML = b.getAttribute('data-label') || '';
+		labelSpan.innerHTML = b.dataset.label || '';
 
 		label.appendChild(labelSpan);
 
